@@ -7,7 +7,8 @@ import PropTypes from 'prop-types';
 
 // Components
 import MyButton from '../util/MyButton';
-import DeleteScream from '../components/DeleteScream';
+import DeleteScream from './DeleteScream';
+import ScreamDialog from './ScreamDialog';
 
 // Redux
 import { connect } from 'react-redux';
@@ -130,6 +131,7 @@ class Scream extends Component {
                             <ChatIcon color="primary"/>
                         </MyButton>
                         <span>{commentCount} {commentCount !== 1 ? 'comments' : 'comment'}</span>
+                        <ScreamDialog screamId={screamId} userHandle={userHandle}/>
                     </CardContent>
                 </Card>
             </div>
