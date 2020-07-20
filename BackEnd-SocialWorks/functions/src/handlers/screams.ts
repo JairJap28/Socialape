@@ -12,7 +12,9 @@ export const getAllScreams = (req: any, res: any) => {
                     body: doc.data().body,
                     userHandle: doc.data().userHandle,
                     createdAt: doc.data().createAt,
-                    userImage: doc.data().userImage
+                    userImage: doc.data().userImage,
+                    likeCount: doc.data().likeCount,
+                    commentCount: doc.data().commentCount
                 });
             });
             return res.json(screams);
