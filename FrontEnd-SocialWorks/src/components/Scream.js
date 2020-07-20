@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 
 // Components
 import MyButton from '../util/MyButton';
+import DeleteScream from '../components/DeleteScream';
 
 // Redux
 import { connect } from 'react-redux';
@@ -28,9 +29,9 @@ import { Typography } from '@material-ui/core';
 
 const styles = {
     card: {
+        position: 'relative',
         display: 'flex',
         marginBottom: 20,
-
     },
     image: {
         minWidth: 200,
@@ -74,7 +75,8 @@ class Scream extends Component {
                 commentCount
             },
             user: {
-                authenticated
+                authenticated,
+                credentials: { handle }
             }
         } = this.props;
 
@@ -96,6 +98,12 @@ class Scream extends Component {
             )
         );
 
+        const deleteButton = authenticated && userHandle === handle ? (
+            <DeleteScream screamId={screamId} />
+        ) : (
+            undefined
+        );
+
         return (
             <div>
                 <Card className={classes.card}>
@@ -113,14 +121,15 @@ class Scream extends Component {
                             color="primary">
                             {userHandle}
                         </Typography>
+                        {deleteButton}
                         <Typography variant="body2" color="textSecondary">{ dayjs(createdAt).fromNow() }</Typography>
                         <Typography variant="body1">{body}</Typography>
                         {likeButton}
-                        <span>{likeCount} likes</span>
+                        <span>{likeCount} {likeCount !== 1 ? 'likes' : 'like'}</span>
                         <MyButton tip="comments">
                             <ChatIcon color="primary"/>
                         </MyButton>
-                        <span>{commentCount} comments</span>
+                        <span>{commentCount} {commentCount !== 1 ? 'comments' : 'comment'}</span>
                     </CardContent>
                 </Card>
             </div>
