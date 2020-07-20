@@ -23,6 +23,9 @@ export const getAllScreams = (req: any, res: any) => {
 };
 
 export const postOneScream = (req: any, res: any) => {
+
+    if (!req.body.body) return res.status(404).json({ body: 'Body must not be empty' });
+
     const newScream = {
         body: req.body.body,
         userHandle: req.user.handle,
