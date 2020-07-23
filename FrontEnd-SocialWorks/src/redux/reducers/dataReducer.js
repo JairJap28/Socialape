@@ -36,6 +36,9 @@ export default function(state = initialState, action) {
         case UNLIKE_SCREAM:
             let indexToUnlike = state.screams.findIndex((scream) => scream.screamId === action.payload.screamId);
             state.screams[indexToUnlike] = action.payload;
+            if (state.scream.screamId === action.payload.screamId) {
+                state.scream = action.payload;
+            }
             return {
                 ...state
             };

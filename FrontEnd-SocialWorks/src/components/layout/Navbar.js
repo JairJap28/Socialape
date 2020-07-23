@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // Components
-import MyButton from '../util/MyButton';
-import PostScream from './PostScream';
+import MyButton from '../../util/MyButton';
+import PostScream from '../scream/PostScream';
 
 // Redux
 import { connect } from 'react-redux';

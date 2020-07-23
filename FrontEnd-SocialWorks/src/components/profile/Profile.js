@@ -5,11 +5,11 @@ import dayjs from 'dayjs';
 
 // Components
 import EditDetails from './EditDetails';
-import MyButton from '../util/MyButton';
+import MyButton from '../../util/MyButton';
 
 // Redux
 import { connect } from 'react-redux';
-import { logoutUser, uploadImage } from '../redux/actions/userActions';
+import { logoutUser, uploadImage } from '../../redux/actions/userActions';
 
 // MUI stuff
 import { withStyles } from '@material-ui/core/styles';

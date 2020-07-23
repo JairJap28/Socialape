@@ -3,11 +3,11 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import PropTypes from 'prop-types';
 
 // Components
-import MyButton from '../util/MyButton';
+import MyButton from '../../util/MyButton';
 
 // Redux
 import { connect } from 'react-redux';
-import { deleteScream } from '../redux/actions/dataActions';
+import { deleteScream } from '../../redux/actions/dataActions';
 
 // Icons
 import DeleteOutline from '@material-ui/icons/DeleteOutline';
