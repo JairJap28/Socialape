@@ -5,8 +5,10 @@ import {
     UNLIKE_SCREAM,
     LOADING_DATA,
     DELETE_SCREAM,
-    POST_SCREAM
+    POST_SCREAM,
+    SUBMIT_COMMENT
 } from '../types';
+import produce from 'immer';
 
 const initialState = {
     screams: [],
@@ -37,7 +39,9 @@ export default function(state = initialState, action) {
             let indexToUnlike = state.screams.findIndex((scream) => scream.screamId === action.payload.screamId);
             state.screams[indexToUnlike] = action.payload;
             if (state.scream.screamId === action.payload.screamId) {
+                let comments = state.scream.comments;
                 state.scream = action.payload;
+                state.scream.comments = comments;
             }
             return {
                 ...state
@@ -55,6 +59,24 @@ export default function(state = initialState, action) {
                     action.payload,
                     ...state.screams 
                 ]
+            };
+        case SUBMIT_COMMENT:
+            let indexScreamCommented = state.screams.findIndex((scream) => scream.screamId === action.payload.screamId);
+            let cantidadLikes = state.scream.commentCount + 1;
+            
+            let editedScream = produce(state.screams[indexScreamCommented], draftState => {
+                draftState.commentCount++
+            });
+            
+            state.screams[indexScreamCommented] = editedScream
+
+            state.scream = {
+                ...state.scream,
+                commentCount: cantidadLikes,
+                comments: [action.payload, ...state.scream.comments]
+            };
+            return {
+                ...state
             };
         default:
             return state;

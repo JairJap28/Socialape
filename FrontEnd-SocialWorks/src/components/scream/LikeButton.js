@@ -33,7 +33,6 @@ class LikeButton extends Component {
         this.props.unlikeScream(this.props.screamId);
     }
     render() {
-        debugger;
         const { authenticated } = this.props.user;
 
         const likeButton = !authenticated ? (

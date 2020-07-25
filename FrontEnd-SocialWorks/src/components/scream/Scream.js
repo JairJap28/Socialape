@@ -66,8 +66,8 @@ class Scream extends Component {
             <DeleteScream screamId={screamId} />
         ) : (
             undefined
-        );
-
+            );
+        
         return (
             <div>
                 <Card className={classes.card}>
