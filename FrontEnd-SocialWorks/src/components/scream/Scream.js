@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import withStyles from '@material-ui/core/styles/withStyles';
 import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
@@ -18,6 +17,7 @@ import { connect } from 'react-redux';
 import ChatIcon from '@material-ui/icons/Chat';
 
 //MUI stuff
+import withStyles from '@material-ui/core/styles/withStyles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -94,7 +94,7 @@ class Scream extends Component {
                             <ChatIcon color="primary"/>
                         </MyButton>
                         <span>{commentCount} {commentCount !== 1 ? 'comments' : 'comment'}</span>
-                        <ScreamDialog screamId={screamId} userHandle={userHandle}/>
+                        <ScreamDialog screamId={screamId} userHandle={userHandle} openDialog={this.props.openDialog}/>
                     </CardContent>
                 </Card>
             </div>
@@ -105,7 +105,8 @@ class Scream extends Component {
 Scream.propTypes = {
     user: PropTypes.object.isRequired,
     scream: PropTypes.object.isRequired,
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    openDialog: PropTypes.bool
 };
 
 const mapStateToProps = (state) => ({
