@@ -22,8 +22,10 @@ import {
 } from './handlers/users';
 import { FBAuth } from './util/fbAuth';
 import { db } from './util/admin';
+import * as cors from 'cors';
 
 const app = express();
+app.use(cors());
 firebase.initializeApp(firebaseConfig);
 
 // Scream route
