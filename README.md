@@ -14,6 +14,18 @@ This is kind of a social media application.
 - They will be able to watch comments.
 - They will be able to [register](https://socialape-d74ff.web.app/signup) on the system.
 
+## Sections
+| Login       | SingUp      |
+| ----------- | ----------- |
+| <img  src="https://user-images.githubusercontent.com/40800776/91074738-973e7f80-e602-11ea-92b5-cefccb2c8a77.png" height="300px"/> |<img  src="https://user-images.githubusercontent.com/40800776/91074861-ca810e80-e602-11ea-9507-b5b00a778ffa.png" height="300px"/> |
+
+### Home
+Logged Out  
+<img  src="https://user-images.githubusercontent.com/40800776/91074953-ec7a9100-e602-11ea-95f0-56cae160f2c1.png" height="300px"/>
+
+Log In  
+<img  src="https://user-images.githubusercontent.com/40800776/91075041-12079a80-e603-11ea-965c-287f39654a71.png" height="300px"/>
+
 ## Languagues
 | ReactJS       | Redux        | Express      | Firebase     |
 | ------------- | ------------ |------------- |------------- |
